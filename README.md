@@ -24,7 +24,7 @@ In this project, our _goal_ is to address some difficulties that are posed in th
 
 - less _distinctive_ appearance of line segments.
 
-## Paper Contribution
+## Paper Contributions
 
 The major contributions of this paper are:
 
