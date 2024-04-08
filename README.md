@@ -18,8 +18,11 @@ As an alternative to `point-based methods`, `line-based methods` demostrate foll
 
 - `line-based methods` can provide _structural information_ about the indoor environment.
 
+In this project, our _goal_ is to address some difficulties that are posed in the field of `line-based feature detection and matching`, such as:
 
+- _fragmentation_ of a single line;
 
+- less _distinctive_ appearance of line segments.
 
 ## Paper Contribution
 
@@ -33,14 +36,18 @@ The major contributions of this paper are:
 
 ## Our Hybrid Approach
 
+The code here is our hybrid algorithm for `line detection` and `stereo matching`.
 
-The code here is our hybrid algorithm for line detection and stereo matching.
+In the work of [SLSLAM](https://github.com/slslam/slslam), J. Lee, S. Lee, G. Zhang, J. Lim and I. Suh proposed a `Canny-based line extractor` and integrated it with the `MSLD descriptor` for line detection and matching. It is shown that this line detection algorithm is capable of detecting _weak_ textures as well as generating _non-fragmented_ line segments.
 
-In https://github.com/slslam/slslam, J. Lee, S. Lee, G. Zhang, J. Lim and I. Suh proposed a Canny-based line extractor and integrated it with the MSLD descriptor for line detection and matching. It is shown that this line detection algorithm is capable of detecting weak textures as well as generating non-fragmented line segments.
+In the work of [LBD](https://github.com/mtamburrano/LBD_Descriptor), L. Zhang and R. Koch proposed the `LBD descriptor` for line matching. According to them, LBD descriptor is more _efficient_ to compute and it is _faster_ to generate the matching results than the state-of-the-art methods.
 
-In https://github.com/mtamburrano/LBD_Descriptor, L. Zhang and R. Koch proposed the LBD descriptor for line matching. According to them, LBD descriptor is more efficient to compute and it is faster to generate the matching results than the state-of-the-art methods.
+However, there are a couple of drawbacks of the originally proposed `LBD-based approach`. First, in the originally proposed `LBD-based approach`, `LBD descriptor` is incorporated with `EDLine detector` and the latter is proved to be _inefficient_ to detect _low-contrast edges_ in our experiments. Second, in the originally proposed `LBD-based approach`, efforts are made to overcome the `scale changes` and the `global rotation`, which _won't_ produce any improvement in our cases given that we apply the algorithm to _calibrated_, _stereo_ cameras.
 
-However, there are a couple of drawbacks of the originally proposed LBD-based approach. First, in the originally proposed LBD-based approach, LBD descriptor is incorporated with EDLine detector and the latter is proved to be inefficient to detect low-contrast edges in our experiments. Second, in the originally proposed LBD-based approach, efforts are made to overcome the scale changes and the global rotation, which won't produce any improvement in our cases given that we apply the algorithm to calibrated, stereo cameras.
+In our work, we managed to integrate `Canny edge detector` with `LBD descriptor`, so that it can enjoy the advantages from the both methods. That is, our method can:
 
-Our code has the advantages of both the Canny+MSLD approach and the EDLine+LBD approach and it can produce superior results in the indoor textureless scenes.
+- detect weak textures and generate non-fragmented line segments, as `SLSLAM` does;
 
+- generate matching results faster, as `LBD` does.
+
+## Demo
