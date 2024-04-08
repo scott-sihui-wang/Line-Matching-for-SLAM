@@ -8,9 +8,9 @@ This project corresponds to the paper `Multiple Homography Estimation via Stereo
 
 ## Background and Motivation
 
-## Paper Contribution
 
-## Our Hybrid Approach
+
+## Paper Contribution
 
 The major contributions of this paper are:
 
@@ -19,6 +19,9 @@ The major contributions of this paper are:
 - Proposed a co-planar line classification algorithm.
 
 - Pointed out that the compatibility of multiple `homographies` can be improved by enforcing the `epipolar` line constraints.
+
+## Our Hybrid Approach
+
 
 The code here is our hybrid algorithm for line detection and stereo matching.
 
