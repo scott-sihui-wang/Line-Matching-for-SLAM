@@ -50,4 +50,6 @@ In our work, we managed to integrate `Canny edge detector` with `LBD descriptor`
 
 - generate matching results faster, as `LBD` does.
 
+To boost efficiency, we removed the `down-sampling` part of the original approach. Since we perform the computation of the descriptors only on the original image, and we no longer perform calculations in `multiple scale` space, tbe total computational time is reduced.
+
 ## Demo
