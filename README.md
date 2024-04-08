@@ -8,6 +8,16 @@ This project corresponds to the paper `Multiple Homography Estimation via Stereo
 
 ## Background and Motivation
 
+In vision-based `SLAM` community, point-based methods, such as `SIFT`, are well-studied and widely used. However, point-based methods can't produce satisfactory results in _indoor_ environment where textured objects become less frequent.
+
+As an alternative to point-based methods, line-based methods demostrate following advantages:
+
+- line-based methods can utilize line features, which are abundant in man-made, indoor environment;
+
+- line-based methods are more resistant to mistakes that are made in matching of features, and therefore can produce more robust results;
+
+- line-based methods can provide structural information about the indoor environment.
+
 
 
 ## Paper Contribution
